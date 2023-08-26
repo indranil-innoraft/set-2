@@ -1,0 +1,5 @@
+name: 'api'
+type: module
+description: 'Api fetch data.'
+package: Custom
+core_version_requirement: ^10

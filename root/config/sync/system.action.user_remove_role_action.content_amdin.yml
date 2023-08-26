@@ -1,0 +1,14 @@
+uuid: 424e4909-e11a-479b-864d-14a9914d7abf
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.content_amdin
+  module:
+    - user
+id: user_remove_role_action.content_amdin
+label: 'Remove the content amdin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: content_amdin

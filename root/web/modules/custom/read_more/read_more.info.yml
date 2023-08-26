@@ -1,0 +1,5 @@
+name: 'Read More'
+type: module
+description: 'Functionality of read more and read less.'
+package: Custom
+core_version_requirement: ^10

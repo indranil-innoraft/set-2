@@ -1,0 +1,6 @@
+<h1>Hello {{ user }}</h1>
+{% for item in items %}
+  <h4>{{ item.title }}</h4>
+  <img src='{{ item.image }}'/>
+{% endfor %}
+<h5>Item count: {{ items_count }}</h5>

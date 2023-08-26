@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * This file contains the hooks.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function product_menu_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if($entity->bundle() === 'product' && $display->getMode() != 'teaser') {
+    $form_builder = \Drupal::formBuilder();
+    $current_user_roles = \Drupal::currentUser()->getRoles();
+    if(in_array('customer', $current_user_roles)) {
+      $form = $form_builder->getForm(Drupal\product_menu\Form\ButtonsForm::class);
+      $build['product_menu'] = ['form' => $form];
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function product_menu_theme($existing, $type, $theme, $path) {
+  return [
+    'thank-you-page' => [
+      'template' => 'buy-now-page',
+      'path' => $path . '/templates',
+      'variables' => [
+        'user' => NULL,
+        'items' => NULL,
+        'items_count' => NULL,
+      ],
+    ],
+  ];
+}

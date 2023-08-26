@@ -1,0 +1,7 @@
+product_menu.thank_you:
+  path: '/thank-you/{user_id}'
+  defaults:
+    _title: 'Thank You'
+    _controller: '\Drupal\product_menu\Controller\ThankYouController::build'
+  requirements:
+    _custom_access: '\Drupal\product_menu\Controller\ThankYouController::access'

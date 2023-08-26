@@ -1,0 +1,4 @@
+services:
+  product_menu.database:
+    class: Drupal\product_menu\Database
+    arguments: ['@database', '@current_user', '@entity_type.manager']

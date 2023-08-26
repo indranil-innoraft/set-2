@@ -1,0 +1,18 @@
+uuid: 933972b1-d422-4894-8478-ef1ffd68be32
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product
+id: node.product.title
+field_name: title
+entity_type: node
+bundle: product
+label: 'Product Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

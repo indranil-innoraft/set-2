@@ -1,0 +1,6 @@
+product_menu_asset:
+  version: 1.0
+  css:
+    theme:
+      css/button.css: {}
+
