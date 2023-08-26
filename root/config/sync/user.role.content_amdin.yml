@@ -1,0 +1,14 @@
+uuid: aece4fae-29cf-4753-904d-af652dd5a1d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product
+  module:
+    - node
+id: content_amdin
+label: 'content amdin'
+weight: 4
+is_admin: null
+permissions:
+  - 'create product content'

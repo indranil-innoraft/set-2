@@ -1,0 +1,9 @@
+.cart-logo {
+  position: relative;
+  background: url('../logo/logo.svg');
+  background-size: cover;
+  height: 10px;
+  width: 10px;
+  top: 50px;
+  left: 15px;
+}

@@ -88,7 +88,7 @@ display:
             label: ''
             field_identifier: created
           exposed: false
-          granularity: second
+          granularity: day
       arguments:
         tid:
           id: tid

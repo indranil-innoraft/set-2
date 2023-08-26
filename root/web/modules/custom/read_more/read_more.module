@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Read More module.
+ */
+
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_node_view().
+ */
+function read_more_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() === 'product' && $view_mode != 'teaser') {
+    $body = $entity->field_description->value;
+
+    $build['read_more'] = [
+      '#type' => 'submit',
+      '#value' => 'Read More',
+      '#weight' => 180,
+      '#attributes' => [
+        'class' => ['read-more'],
+      ]
+    ];
+
+    $build['read_less'] = [
+      '#type' => 'button',
+      '#weight' => 180,
+      '#value' => 'Read Less',
+      '#attributes' => [
+        'class' => ['read-less'],
+      ]
+    ];
+
+    $build['field_description']['#attributes']['class'] = ['body-wrapper'];
+    $build['#attached']['library'][] = 'read_more/read-more';
+    $build['#attached']['drupalSettings']['read_more']['body'] = $body;
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function read_more_preprocess_page(array &$variables) {
+  $variables['#attached']['library'][] = 'read_more/read-more';
+}

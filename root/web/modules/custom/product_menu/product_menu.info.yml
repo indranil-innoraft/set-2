@@ -1,0 +1,5 @@
+name: 'product menu'
+type: module
+description: 'show product menu'
+package: Custom
+core_version_requirement: ^10

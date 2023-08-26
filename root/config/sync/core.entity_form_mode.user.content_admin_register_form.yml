@@ -1,0 +1,10 @@
+uuid: 72512d4a-dcf1-4165-aae6-70513e89521a
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.content_admin_register_form
+label: 'Content admin register form'
+targetEntityType: user
+cache: true

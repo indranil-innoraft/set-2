@@ -1,8 +1,9 @@
-uuid: 784c7237-7fbf-4064-895b-e9aa7ea8ddf7
+uuid: e6317880-c26f-4aac-8fea-c6b147a15403
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.user.content_admin_register_form
     - field.field.user.user.field_address
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -12,10 +13,10 @@ dependencies:
     - user
 _core:
   default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
-id: user.user.default
+id: user.user.content_admin_register_form
 targetEntityType: user
 bundle: user
-mode: default
+mode: content_admin_register_form
 content:
   account:
     weight: 0

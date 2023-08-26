@@ -1,0 +1,7 @@
+api.fetch:
+  path: '/fetch/data'
+  defaults:
+    _title: 'Fetch'
+    _controller: '\Drupal\api\Controller\ApiController::fetch'
+  requirements:
+    _permission: 'access content'

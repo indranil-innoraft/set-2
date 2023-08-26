@@ -1,0 +1,7 @@
+read-more:
+  version: 1.0
+  css:
+    theme:
+      css/read-more.css: {}
+  js:
+    js/read-more.js: {}
