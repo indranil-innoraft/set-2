@@ -1,0 +1,5 @@
+name: 'view update'
+type: module
+description: 'altering the views.'
+package: Custom
+core_version_requirement: ^10
