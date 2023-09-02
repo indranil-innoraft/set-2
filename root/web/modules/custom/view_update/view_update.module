@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Recommended Blogs module.
+ */
+
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function view_update_views_data_alter(&$data) {
+  // dd($data);
+  // $data['blog_like']['table']['group'] = t('Blog Like Counter');
+  // $data['blog_like']['table']['base'] = [
+  //   'field' => 'nid',
+  //   'title' => t('Like counter'),
+  //   'help' => t('Contains the Node Id.'),
+  // ];
+  // $data['blog_like']['table']['join'] = [
+  //   'node_field_data' => [
+  //     'left_field' => 'nid',
+  //     'field' => 'nid',
+  //   ],
+  // ];
+  // $data['blog_like']['like_count'] = [
+  //   'title' => t('Like Count'),
+  //   'help' => t("Count of the Blog Like."),
+  //   'field' => [
+  //     'id' => 'numeric',
+  //   ],
+  // ];
+
+  $data['users_field_data']['cart'] = [
+    'title' => t('Blog Likes'),
+    'relationship' => [
+      'base' => 'cart',
+      'base field' => 'user_id', // Assuming 'nid' is the node ID field in the blog_like table.
+      'field' => 'uid',
+      'title' => t('Cart details'),
+      'id' => 'standard',
+      'handler' => 'views_handler_relationship',
+      'label' => t('Blog Like'),
+    ],
+  ];
+
+  // // Define the like_count field.
+  // $data['blog_like']['like_count'] = [
+  //   'title' => t('Like Count 1'),
+  //   'help' => t('Count of likes on the blog post.'),
+  //   'field' => [
+  //     'id' => 'numeric',
+  //   ],
+  //   'relationship' => [
+  //     'id' => 'node_field_data_blog_like', // Use the relationship you defined above.
+  //     'base' => 'blog_like',
+  //     'base field' => 'nid', // Assuming 'nid' is the node ID field in the blog_like table.
+  //     'title' => t('Like Count'),
+  //   ],
+  // ];
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function view_update_views_query_alter(ViewExecutable $view, QueryPluginBase $query)
+{
+  if ($view->id() == 'recommended_blogs') {
+    $query->addOrderBy('blog_like', 'like_count', 'DESC');
+  }
+}

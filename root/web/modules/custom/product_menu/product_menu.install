@@ -8,8 +8,7 @@
 /**
  * Implements hook_schema().
  */
-function product_menu_schema()
-{
+function product_menu_schema() {
 
   $schema['cart'] = [
     'description' => 'product cart',
