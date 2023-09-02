@@ -1,0 +1,15 @@
+diff --git a/address.module b/address.module
+index 92ed41b..9aeb034 100644
+--- a/address.module
++++ b/address.module
+@@ -85,3 +85,10 @@ function address_module_implements_alter(&$implementations, $hook) {
+     $implementations['address'] = $group;
+   }
+ }
++
++/**
++ * Implements hook_crorn().
++ */
++function address_cron() {
++  \Drupal::messenger()->addMessage(t('Added patch to the address module'));
++}
